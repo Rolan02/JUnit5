@@ -32,6 +32,4 @@ public class OrderTest {
         order.addProduct(product2);
         assertEquals(600, order.total());
     }
-
-
 }

@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Order;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class LifeCycleTest {
 
     @BeforeAll
@@ -19,11 +21,18 @@ public class LifeCycleTest {
         System.out.println("::: AFTER_EACH :::");
     }
     @Test
+    @Order(1)
     public void testUno() {
         System.out.println("::: TEST_UNO :::");
     }
     @Test
+    @Order(2)
     public void testDos() {
         System.out.println("::: TEST_DOS :::");
+    }
+    @Test
+    @Order(3)
+    public void testTres() {
+        System.out.println("::: TEST_TRES :::");
     }
 }
