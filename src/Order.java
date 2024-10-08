@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Order implements ICart {
+public class Order implements ICart , IPayable {
 
     private final List<Product> products = new ArrayList<>();
 
@@ -25,5 +25,10 @@ public class Order implements ICart {
     @Override
     public void empty() {
         this.products.clear();
+    }
+
+    @Override
+    public void pay(PaymentProvider pays) throws PayException {
+
     }
 }

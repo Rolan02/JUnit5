@@ -1,4 +1,4 @@
 public interface IPayable {
 
-   // void pay(PaymentProvider pays) throws PayException;
+    void pay(PaymentProvider pays) throws PayException;
 }

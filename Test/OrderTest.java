@@ -32,4 +32,20 @@ public class OrderTest {
         order.addProduct(product2);
         assertEquals(600, order.total());
     }
+    @Test
+    public void testPayPalPay() {
+        PaymentProvider pay = new PayPalProvider();
+        assertDoesNotThrow(() -> {
+            order1.pay(pay);
+        });
+    }
+
+    @Test
+    public void testInvalidPay() {
+        PaymentProvider inv = new UnfundedProvider();
+        PayException exception = assertThrows(PayException.class, () -> {
+            order1.pay(inv);
+        });
+        assertEquals(exception.getMessage(), "No tienes fondos para pagar");
+    }
 }
